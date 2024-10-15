@@ -1,6 +1,7 @@
 import re
 from openpyxl import Workbook, load_workbook
 
+# This file checks through each of the issues that may be in a call number. It takes call numbers one at a time.
 
 def remove_extra_callnumbers(inns):
     outs = inns.split(";")
