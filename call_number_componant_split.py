@@ -7,9 +7,14 @@ def remove_extra_callnumbers(inns):
     outs = inns.split(";")
     return outs[0]
 
+def remove_non_alphanumeric(text):
+  """Removes non-alphanumeric characters from a string."""
+  return re.sub(r"[^a-zA-Z0-9]", "", text)
 
 def first_character_must_be_letter(inns):
     outs = False
+    if len(inns) <= 0:
+        return outs
     if inns[0].isalpha():
         outs = True
     return outs
