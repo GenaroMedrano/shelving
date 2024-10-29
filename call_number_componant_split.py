@@ -63,6 +63,8 @@ def break_call_number_into_parts(inns):
 
 
 def group_calln_parts(inns):
+    if len(inns) <= 1:
+        return (False)
     parts = []
     parts.append([inns[0], inns[1]])
     count = 2
@@ -92,6 +94,8 @@ def trailing_zeros(inns):
 
 
 def adding_zero_place_holders(inns):
+    if not inns:
+        return(False)
     outs = inns[0][0]
     if '.' in inns[0][1]:
         temp = inns[0][1].split('.')
