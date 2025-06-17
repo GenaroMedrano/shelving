@@ -26,10 +26,14 @@ def run_modify_excel(excel_path):
             ws['F1'] = 'Miss Shelved'
             ws['G1'] = 'Location'
             ws['H1'] = 'Location2'
-            ws['I1'] = 'Title'
+            ws['I1'] = 'I Call#'
+            ws['J1'] = 'Title'
         else:
             cell_number = counter
-            the_value = call_normalize.final_output(cell.value)
+            if len(ws["I" + str(counter)].value) > 2:
+                the_value = call_normalize.final_output(ws["I" + str(counter)].value)
+            else:
+                the_value = call_normalize.final_output(cell.value)
             ws['D' + str(cell_number)].value = cell_number
             ws['A' + str(cell_number)].value = the_value
             ws['F' + str(cell_number)].value = f'=IF(D{cell_number-1}>{cell_number},"m","")'

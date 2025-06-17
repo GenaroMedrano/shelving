@@ -27,14 +27,24 @@ def run_out_excel(excel_path):
             if i <= 0:
                 i = 1
             while i <= counter + 2:
-                if ws['E' + str(i)].value and i >= 1:
+                if ws['I' + str(i)].value and i >= 1:
+                    print('yay')
                     if i == counter:
-                        outs_array.append(["*" + ws['E' + str(i)].value + "*", "*" + check_if_empty(ws['F' + str(i)]) + "*","*" + ws['I' + str(i)].value + "*"])
+                        outs_array.append(["*" + ws['I' + str(i)].value + "*", "*" + check_if_empty(ws['F' + str(i)]) + "*","*" + ws['J' + str(i)].value + "*"])
                         miss_counter += 1
                     else:
                         #  print(ws['D' + str(i)].value, ws['I' + str(i)].value, check_if_empty(ws['F' + str(i)]))
-                        print(ws['E' + str(i)].value + "\t" + check_if_empty(ws['F' + str(i)]) + "\t" + ws['I' + str(i)].value)
-                        outs_array.append([ws['E' + str(i)].value, check_if_empty(ws['F' + str(i)]), ws['I' + str(i)].value])
+                        print(ws['I' + str(i)].value + "\t" + check_if_empty(ws['F' + str(i)]) + "\t" + ws['J' + str(i)].value)
+                        outs_array.append([ws['I' + str(i)].value, check_if_empty(ws['F' + str(i)]), ws['J' + str(i)].value])
+                elif ws['E' + str(i)].value and i >= 1:
+                    print('blay')
+                    if i == counter:
+                        outs_array.append(["*" + ws['E' + str(i)].value + "*", "*" + check_if_empty(ws['F' + str(i)]) + "*","*" + ws['J' + str(i)].value + "*"])
+                        miss_counter += 1
+                    else:
+                        #  print(ws['D' + str(i)].value, ws['I' + str(i)].value, check_if_empty(ws['F' + str(i)]))
+                        print(ws['E' + str(i)].value + "\t" + check_if_empty(ws['F' + str(i)]) + "\t" + ws['J' + str(i)].value)
+                        outs_array.append([ws['E' + str(i)].value, check_if_empty(ws['F' + str(i)]), ws['J' + str(i)].value])
                 the_last_call = ws['E' + str(i)].value
                 i += 1
             outs_array.append(["", "", ""])
@@ -58,5 +68,5 @@ def run_out_excel(excel_path):
 
     log += this_day + "\t" + last_bit[0] + "\t" + str(miss_counter) + "\t" + str(counter - 1)
 
-    with open(r"\\fs16.tamuk.edu\ds$\Library\circulation\Shelving Stats\process_logs.txt", "a") as myfile:
-        myfile.write(log)
+    #with open(r"\\fs01\Library\circulation\Shelving Stats\process_logs.txt", "a") as myfile:
+     #   myfile.write(log)
